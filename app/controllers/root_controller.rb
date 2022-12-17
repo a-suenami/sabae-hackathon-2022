@@ -1,5 +1,6 @@
 class RootController < ActionController::Base
   def index
-    render plain: 'hello, world!'
+    sample = Sample.create!(name: 'world')
+    render plain: "hello, #{sample.name}!"
   end
 end
