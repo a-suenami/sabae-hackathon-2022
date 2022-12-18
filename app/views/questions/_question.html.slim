@@ -1,7 +1,7 @@
 div id="#{dom_id question}"
   p
     strong Photo:
-    =< question.photo
+    =< image_tag question.photo.url
   p
     strong Comment:
     =< question.comment

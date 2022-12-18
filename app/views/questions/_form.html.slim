@@ -6,13 +6,16 @@
         - @question.errors.each do |error|
           li = error.full_message
 
-  div
-    = form.label :photo, style: "display: block"
-    = form.text_field :photo
+  div.form-group.row
+    = form.label '画像', style: "display: block", class: 'col-sm-2 col-form-label'
+    .col-sm-10
+      /= form.hidden_field :image, value: @question.cached_image_data, id: nil
+      = form.file_field :photo, class: 'form-control-file'
+
+  div.form-group.row
+    = form.label 'コメント', style: "display: block", class: 'col-sm-2 col-form-label'
+    .col-sm-10
+      = form.text_field :comment, class: 'form-control-text'
 
   div
-    = form.label :comment, style: "display: block"
-    = form.text_field :comment
-
-  div
-    = form.submit
+    = form.submit '問い合わせする', class: "btn btn-primary"
