@@ -1,11 +1,19 @@
 p style="color: green" = notice
 
-h1 Questions
+h1 ごみ分別問い合わせ一覧
+
+= link_to "問い合わせする", new_question_path, class: 'btn btn-primary'
 
 #questions
-  - @questions.each do |question|
-    == render question
-    /p
-    /  = link_to "Show this question", question
+  table.table
+    thead.thead-dark
+      th(scope="col") #
+      th(scope="col") 画像
+      th(scope="col") コメント
 
-= link_to "New question", new_question_path
+    tbody
+      - @questions.each do |question|
+        tr
+          th(scope="row")= question.id
+          td=< image_tag question.photo.url, height: '200px', width: '300px'
+          td=< question.comment
