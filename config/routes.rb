@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
   root "root#index"
 
-  resources :questions
+  resources :questions, only: [:index, :show]
 
-  get '/sample', to: 'root#sample'
+  namespace :admin do
+    resources :inquiries, only: [:index, :edit]
+  end
 end
