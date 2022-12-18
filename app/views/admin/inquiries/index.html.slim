@@ -3,14 +3,16 @@ p style="color: green" = notice
 h1 お問い合わせ一覧
 
 #questions
-  - @questions.each do |question|
-    div id="#{dom_id question}"
-      p
-        strong Photo:
-        =< image_tag question.photo.url
-      p
-        strong Comment:
-        =< question.comment
 
-    p
-      = link_to "Show this question", question
+  table.table
+    thead.thead-dark
+      th(scope="col") #
+      th(scope="col") 画像
+      th(scope="col") コメント
+
+    tbody
+      - @questions.each do |question|
+        tr
+          th(scope="row")= question.id
+          td=< image_tag question.photo.url, height: '200px', width: '300px'
+          td=< question.comment
