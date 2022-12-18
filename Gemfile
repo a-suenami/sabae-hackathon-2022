@@ -75,4 +75,4 @@ group :test do
 end
 
 gem 'slim-rails'
-
+gem 'shrine'
