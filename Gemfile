@@ -76,3 +76,4 @@ end
 
 gem 'slim-rails'
 gem 'shrine'
+gem 'aws-sdk-s3'
